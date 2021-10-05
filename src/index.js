@@ -18,10 +18,18 @@ const bodyRef = document.querySelector('body');
 bodyRef.classList.add(Theme.LIGHT)
 
 
-inputThemeRef.addEventListener('change', ()=> {
-    bodyRef.classList.toggle(Theme.LIGHT)
-    bodyRef.classList.toggle(Theme.DARK);
-    localStorage.setItem('currentTheme', bodyRef.className)});
+inputThemeRef.addEventListener('change', statusCheked)
+
+    function statusCheked() {
+      if (inputThemeRef.checked) {
+        bodyRef.classList.add(Theme.DARK)
+        bodyRef.classList.remove(Theme.LIGHT);
+        
+      } else {
+        bodyRef.classList.add(Theme.LIGHT)
+        bodyRef.classList.remove(Theme.DARK);
+      }localStorage.setItem('currentTheme', bodyRef.className);
+    }
 
 
     
